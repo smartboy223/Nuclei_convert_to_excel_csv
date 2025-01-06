@@ -1,0 +1,8 @@
+# Required Python libraries for the Data Extraction Tool
+# Install using: pip install -r requirements.txt
+
+# Regular expressions for parsing
+re
+
+# CSV handling for output
+csv
