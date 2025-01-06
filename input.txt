@@ -1,1 +1,34 @@
-#add your result here to get converted to excel file format csv
+
+# 📄 input.txt Preparation Guide
+
+To generate the `input.txt` file for the script, you can use Nuclei with the following command:
+
+## Command Syntax:
+```
+nuclei -l my_domains_list.txt -o input.txt
+```
+
+### Explanation:
+- **`-l my_domains_list.txt`**: Specifies the input list of domains for Nuclei to scan.
+- **`-o input.txt`**: Outputs the results of the scan into the `input.txt` file.
+
+### Steps:
+1. Create a file (e.g., `my_domains_list.txt`) containing the list of domains you want to scan.
+2. Run the command above to execute the Nuclei scan and generate the `input.txt` file.
+3. Use the generated `input.txt` as input for the Python script to extract structured data.
+
+### Example Content in `my_domains_list.txt`:
+```
+example.com
+testsite.com
+anotherdomain.org
+```
+
+After running the Nuclei command, the `input.txt` file will look like this:
+```
+[azure-domain-tenant] [http] [info] https://login.microsoftonline.com:443/example/v2.0/.well-known/openid-configuration ["example-id"]
+[laravel-env] [http] [high] https://example.com/.env [paths="/.env"]
+[phpinfo-files] [http] [low] https://example.com/phpinfo.php ["8.1.26"] [paths="/phpinfo.php"]
+```
+
+This file can then be processed by the script to extract and structure the data.
